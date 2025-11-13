@@ -9,13 +9,13 @@ TODO:
 */
 
 
-struct App<'a> {
+struct App<> {
   output: String,
-  rawInput: Vec<&'a str>,
-  inputCounter: i32
+  rawInput: Vec<i32>,
+  inputCounter: u32
 }
 
-impl Default for App<'_> {
+impl Default for App<> {
   fn default() -> Self {
     Self {
       output: String::from(""),
@@ -26,9 +26,10 @@ impl Default for App<'_> {
 }
 
 fn parse(arr: Vec<String>) {
+
 }
 
-impl eframe::App for App<'_> {
+impl eframe::App for App<> {
   fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
     let Self {
       output,
@@ -40,12 +41,15 @@ impl eframe::App for App<'_> {
       ui.horizontal(|ui| {
         if ui.button("1").clicked() {
           *output = output.to_owned() + "1";
+          rawInput.push(1)
         }
         if ui.button("2").clicked() {
           *output = output.to_owned() + "2";
+          rawInput.push(2);
         }
         if ui.button("3").clicked() {
           *output = output.to_owned() + "3";
+          rawInput.push(3)
         }
         if ui.button("+").clicked(){
         }
@@ -53,12 +57,15 @@ impl eframe::App for App<'_> {
       ui.horizontal(|ui| {
         if ui.button("4").clicked() {
           *output = output.to_owned() + "4";
+          rawInput.push(4)
         }
         if ui.button("5").clicked() {
           *output = output.to_owned() + "5";
+          rawInput.push(5);
         }
         if ui.button("6").clicked() {
           *output = output.to_owned() + "6";
+          rawInput.push(6);
         }
         if ui.button("-").clicked(){
         }
@@ -66,12 +73,15 @@ impl eframe::App for App<'_> {
       ui.horizontal(|ui| {
         if ui.button("7").clicked() {
           *output = output.to_owned() + "7";
+          rawInput.push(7);
         }
         if ui.button("8").clicked() {
           *output = output.to_owned() + "8";
+          rawInput.push(8);
         }
         if ui.button("9").clicked() {
           *output = output.to_owned() + "9";
+          rawInput.push(9);
         }
       });
     });
